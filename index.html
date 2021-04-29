@@ -28,7 +28,7 @@
             </ul>
           </div>
           <p>or use your email for registration:</p>
-          <div class="form">
+          <form id="form" class="form" action="/" method="GET">
             <input
               type="text"
               placeholder="Name"
@@ -70,11 +70,12 @@
               >I agree to the <red>Terms</red> and
               <red>Privacy Policy</red>.</label
             >
-          </div>
-          <div class="submit">
+            <button id="submitBtn" type="submit" disabled>Sign Up</button>
+          </form>
+          <!-- <div class="submit">
             <button id="submitBtn" type="submit" disabled>Sign Up</button>
             <button disabled>Sign In</button>
-          </div>
+          </div> -->
         </div>
         <div class="imageSection">
           <!-- image inserted in css -->
@@ -100,7 +101,11 @@
           USER
         </label>
       </div>
+      <!-- *************************************************************** -->
+
+      <div id="error" class="popUp" data-testid="error"></div>
     </div>
+
     <script src="js/script.js"></script>
   </body>
 </html>
