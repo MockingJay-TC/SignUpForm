@@ -29,11 +29,42 @@
           </div>
           <p>or use your email for registration:</p>
           <div class="form">
-            <input type="text" placeholder="Name" /><br />
-            <input type="email" placeholder="Email" /><br />
-            <input type="password" placeholder="Password" /><br />
-            <input type="password" placeholder="Confirm Password" /><br />
-            <input class="check" type="checkbox" id="check" hidden />
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              required
+              disabled
+            /><br />
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              required
+              disabled
+            /><br />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+              disabled
+            /><br />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="conPassword"
+              required
+              disabled
+            /><br />
+            <input
+              class="check"
+              type="checkbox"
+              id="check"
+              name="agree"
+              hidden
+              disabled
+            />
             <label for="check" class="checkmark"></label>
             <label for="check"
               >I agree to the <red>Terms</red> and
@@ -41,20 +72,35 @@
             >
           </div>
           <div class="submit">
-            <button>Sign Up</button>
-            <button>Sign In</button>
+            <button id="submitBtn" type="submit" disabled>Sign Up</button>
+            <button disabled>Sign In</button>
           </div>
         </div>
         <div class="imageSection">
           <!-- image inserted in css -->
         </div>
         <label class="adminSection" for="admin">
-          <input type="radio" id="admin" data-testid="admin" name="sect"/> ADMIN
+          <input
+            type="radio"
+            id="admin"
+            data-testid="admin"
+            name="sect"
+            value="Admin"
+          />
+          ADMIN
         </label>
         <label for="user" class="userSection">
-          <input type="radio" id="user" data-testid="user" name="sect"/> USER
+          <input
+            type="radio"
+            id="user"
+            data-testid="user"
+            name="sect"
+            value="User"
+          />
+          USER
         </label>
       </div>
     </div>
+    <script src="js/script.js"></script>
   </body>
 </html>
