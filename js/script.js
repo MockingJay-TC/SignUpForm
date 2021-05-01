@@ -6,68 +6,50 @@ let confirmPasswordInput = document.querySelector("input[name = 'conPassword']")
 let check = document.querySelector("input[name = 'agree']");
 let form = document.getElementById("form");
 let errorElement = document.getElementById("error");
+
+// Submit Button
+let submitBtn = document.getElementById("submitBtn");
+
+
 console.log(errorElement);
 console.log(form);
 
 // User Type Fields
 let userType = document.querySelectorAll("input[name = 'sect']");
+let inputs = document.querySelectorAll("input");
 
 
 // selecting a userType to use
 for (input of userType) {
     input.addEventListener('click', () => {
-        nameInput.disabled = false;
-        // nameInput.value = "";
-        emailInput.disabled = false;
-        passwordInput.disabled = false;
-        confirmPasswordInput.disabled = false;
-        check.disabled = false; 
+      for(item of inputs){
+        item.disabled = false;
         submitBtn.disabled = false;
-
+      }
     })
 }
 
-
-
 form.addEventListener('submit', (e) => {
-    let errorMessages = [];
-
-
-    if (nameInput.value === '' || nameInput.value == null){
-        errorMessages.push('Name is Required');
-        console.log(errorMessages);
-        // nameInput.value = "name is required";
-        // nameInput.style('color', 'tomato');
+    let messages = []
+    if (nameInput.value === '' || nameInput.value == null) {
+      messages.push('Name is required')
     }
-
-    if (errorMessages.length > 0) {
-        e.preventDefault();
-        errorElement.innerText = errorMessages.join(',');
-        console.log(errorElement.innerText);
+  
+    if (passwordInput.value.length <= 6) {
+      messages.push('Password must be longer than 6 characters')
     }
-
-})
-// Submit Button
-// let submitBtn = document.getElementById("submitBtn");
-// console.log(submitBtn);
-// let errorMessages = [];
-    
-
-// submitBtn.addEventListener('click', () => {
-//     console.log("clicked");
-//     // console.log(nameInput.value);
-    
-//     // if ((nameInput.value === '') || (nameInput.value == null)){
-//     //     errorMessages.push('Name is Required');
-//     //     console.log(errorMessages);
-//     //     // nameInput.value = "name is required";
-//     //     // nameInput.style('color', 'tomato');
-     
-//     // }
-
-//     // if (errorMessages.length >= 0) {
-//     //     // e.preventDefault();
-//     //     errorElement.innerText = errorMessages.join(',');
-//     //     console.log(errorElement.innerText);
-//     // }
-// })
+  
+    if (passwordInput.value.length >= 20) {
+      messages.push('Password must be less than 20 characters')
+    }
+  
+    if (passwordInput.value === 'password') {
+      messages.push('Password cannot be password')
+    }
+  
+    if (messages.length > 0) {
+      e.preventDefault()
+      errorElement.innerText = messages.join(', ')
+      console.log(errorElement.innerText);
+    }
+  })
