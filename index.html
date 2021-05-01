@@ -33,28 +33,30 @@
               type="text"
               placeholder="Name"
               name="name"
-              required
+              
               disabled
+              data-testid="name"
             /><br />
             <input
               type="email"
               placeholder="Email"
               name="email"
-              required
+              
               disabled
+              data-testid="email"
             /><br />
             <input
               type="password"
               placeholder="Password"
               name="password"
-              
+              data-testid="password"
               disabled
             /><br />
             <input
               type="password"
               placeholder="Confirm Password"
               name="conPassword"
-              
+              data-testid="re-password"
               disabled
             /><br />
             <input
@@ -64,13 +66,14 @@
               name="agree"
               hidden
               disabled
+              
             />
-            <label for="check" class="checkmark"></label>
+            <label for="check" class="checkmark" data-testid="check"></label>
             <label for="check"
               >I agree to the <red>Terms</red> and
               <red>Privacy Policy</red>.</label
             >
-            <button id="submitBtn" type="submit" disabled>Sign Up</button>
+            <button id="submitBtn" type="submit" disabled data-testid="submit">Sign Up</button>
           </form>
         </div>
         <div class="imageSection">

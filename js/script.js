@@ -39,18 +39,21 @@ form.addEventListener("submit", (e) => {
     messages.push("Name is required");
   } else {
     details.push(nameInput.value);
+    document.querySelector('[data-testid=name]').style.borderColor = '#49a9e3;';
   }
   if (emailInput.value === "" || emailInput.value == null) {
     messages.push("Email is required");
   } else {
     details.push(emailInput.value);
+    document.querySelector('[data-testid=name]').style.borderColor = '#49a9e3;';
   }
 
   if (passwordInput.value.length <= 6) {
     messages.push("Password must be longer than 6 characters");
+    
   }
 
-  if (passwordInput.value.length >= 20) {
+  if (passwordInput.value.length >= 12) {
     messages.push("Password must be less than 20 characters");
   }
 
@@ -60,6 +63,16 @@ form.addEventListener("submit", (e) => {
   if (passwordInput.value != confirmPasswordInput.value) {
     messages.push("Passwords Don't Match");
   }
+  if (passwordInput.value.search(/[A-Z]/) == -1){
+    messages.push("Atleast 1 upper letter in password");
+  }
+  if (passwordInput.value.search(/[0-9]/) == -1){
+    messages.push("Atleast 1 number in password");
+  }
+  if (passwordInput.value.search(/[!\@\#\$\%\^\&\*\(\)\}\{\;\'\:\"\,\.\<\>\/\?}]/) == -1){
+    messages.push("Atleast 1 special character in password");
+  }
+  
 
   if (messages.length > 0) {
     e.preventDefault();
@@ -69,5 +82,6 @@ form.addEventListener("submit", (e) => {
   } else {
     // errorElement.innerText = details.join(' \n ')
     errorElement.innerText = "Successfully Completed";
+    alert("Successfully Completed")
   }
 });
