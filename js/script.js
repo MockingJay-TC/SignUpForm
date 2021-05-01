@@ -31,8 +31,18 @@ for (input of userType) {
 
 form.addEventListener('submit', (e) => {
     let messages = []
+    let details = []
     if (nameInput.value === '' || nameInput.value == null) {
       messages.push('Name is required')
+    }
+    else{
+      details.push(nameInput.value)
+    }
+    if (emailInput.value ==='' || emailInput.value == null){
+      messages.push('Email is required')
+    }
+    else{
+      details.push(emailInput.value)
     }
   
     if (passwordInput.value.length <= 6) {
@@ -46,10 +56,20 @@ form.addEventListener('submit', (e) => {
     if (passwordInput.value === 'password') {
       messages.push('Password cannot be password')
     }
+    if(passwordInput.value != confirmPasswordInput.value){
+      messages.push ('Password Don\'t Match')
+    }
   
     if (messages.length > 0) {
       e.preventDefault()
-      errorElement.innerText = messages.join(', ')
+      errorElement.style.display = "block";
+      errorElement.innerText = messages.join(' \n ')
       console.log(errorElement.innerText);
     }
+    else{
+      // errorElement.innerText = details.join(' \n ')
+      errorElement.innerText = ('Successfully Completed')
+      
+    }
+    
   })
