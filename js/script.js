@@ -53,8 +53,8 @@ form.addEventListener("submit", (e) => {
     
   }
 
-  if (passwordInput.value.length >= 12) {
-    messages.push("Password must be less than 20 characters");
+  if (passwordInput.value.length > 12) {
+    messages.push("Password must be less than 13 characters");
   }
 
   if (passwordInput.value === "password") {
