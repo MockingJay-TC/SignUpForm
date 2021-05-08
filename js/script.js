@@ -36,10 +36,13 @@ form.addEventListener("submit", (e) => {
   let messages = [];
   let details = [];
   if (nameInput.value === "" || nameInput.value == null) {
-    messages.push("Name is required");
+    messages.push("Username is required");
   } else {
     details.push(nameInput.value);
     document.querySelector('[data-testid=name]').style.borderColor = '#49a9e3;';
+  }
+  if (nameInput.value.length < 2 || nameInput.value.length > 10) {
+    messages.push("Username should be at least 2 and less than 10");
   }
   if (emailInput.value === "" || emailInput.value == null) {
     messages.push("Email is required");
@@ -50,7 +53,7 @@ form.addEventListener("submit", (e) => {
 
   if (passwordInput.value.length <= 6) {
     messages.push("Password must be longer than 6 characters");
-    
+
   }
 
   if (passwordInput.value.length > 12) {
@@ -63,16 +66,16 @@ form.addEventListener("submit", (e) => {
   if (passwordInput.value != confirmPasswordInput.value) {
     messages.push("Passwords Don't Match");
   }
-  if (passwordInput.value.search(/[A-Z]/) == -1){
+  if (passwordInput.value.search(/[A-Z]/) == -1) {
     messages.push("Atleast 1 upper letter in password");
   }
-  if (passwordInput.value.search(/[0-9]/) == -1){
+  if (passwordInput.value.search(/[0-9]/) == -1) {
     messages.push("Atleast 1 number in password");
   }
-  if (passwordInput.value.search(/[!\@\#\$\%\^\&\*\(\)\}\{\;\'\:\"\,\.\<\>\/\?}]/) == -1){
+  if (passwordInput.value.search(/[!\@\#\$\%\^\&\*\(\)\}\{\;\'\:\"\,\.\<\>\/\?}]/) == -1) {
     messages.push("Atleast 1 special character in password");
   }
-  
+
 
   if (messages.length > 0) {
     e.preventDefault();
