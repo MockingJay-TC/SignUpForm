@@ -224,8 +224,8 @@ button:hover{
 
   .popUp{
       position: absolute;
-      top: 20%;
-      left: 50%;
+      top: 50%;
+      left: 71%;
       transform: translate(-50%, -50%);
       z-index: 100;
       display: none;
